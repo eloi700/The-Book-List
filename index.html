@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <title>The Book List</title>
+
+    <style>
+      body {
+        min-height: 100vh;
+      }
+      .container {
+        position: relative;
+      }
+
+      .success,
+      .error {
+        color: #fff;
+        padding: 5px;
+        margin: 5px 0 15px 0;
+      }
+
+      .success {
+        background: #00ff00;
+      }
+
+      .error {
+        background: #ff0000;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-dark d-flex justify-content-center align-items-center flex-column"
+  >
+    <div
+      class="container d-flex justify-content-start flex-column gap-3 bg-light"
+      style="height: 40rem; width: 40rem"
+    >
+      <h1 class="heading mx-auto mt-5">Add Book</h1>
+      <div class="form-floating mb-1">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingBookTitle"
+          placeholder="Book Title"
+        />
+        <label for="floatingBookTitle">Book Title</label>
+      </div>
+      <div class="form-floating mb-1">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingAuthor"
+          placeholder="Author"
+        />
+        <label for="floatingAuthor">Author</label>
+      </div>
+      <div class="form-floating mb-1">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingIsbn"
+          placeholder="ISBN"
+        />
+        <label for="floatingIsbn">ISBN-#</label>
+      </div>
+      <button class="btn btn-dark">Submit</button>
+      <!-- Table -->
+      <table class="table table-striped table-success text-center">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="book-list">
+          <tr>
+            <!-- <td></td>
+            <td></td>
+            <td></td> -->
+          </tr>
+          <tr></tr>
+          <tr></tr>
+        </tbody>
+      </table>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+      integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
