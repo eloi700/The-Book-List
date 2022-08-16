@@ -24,8 +24,8 @@
       .success,
       .error {
         color: #fff;
-        padding: 5px;
-        margin: 5px 0 15px 0;
+        padding: 10px 5px;
+        text-align: center;
       }
 
       .success {
@@ -34,6 +34,10 @@
 
       .error {
         background: #ff0000;
+      }
+
+      .table-container {
+        overflow-y: scroll;
       }
     </style>
   </head>
@@ -45,36 +49,39 @@
       style="height: 40rem; width: 40rem"
     >
       <h1 class="heading mx-auto mt-5">Add Book</h1>
-      <div class="form-floating mb-1 book-form">
-        <input
-          type="text"
-          class="form-control title"
-          id="floatingBookTitle"
-          placeholder="Book Title"
-        />
-        <label for="floatingBookTitle">Book Title</label>
-      </div>
-      <div class="form-floating mb-1">
-        <input
-          type="text"
-          class="form-control author"
-          id="floatingAuthor"
-          placeholder="Author"
-        />
-        <label for="floatingAuthor">Author</label>
-      </div>
-      <div class="form-floating mb-1">
-        <input
-          type="text"
-          class="form-control isbn"
-          id="floatingIsbn"
-          placeholder="ISBN"
-        />
-        <label for="floatingIsbn">ISBN #</label>
+      <div class="book-form mt-3">
+        <div class="form-floating mb-1">
+          <input
+            type="text"
+            class="form-control title"
+            id="floatingBookTitle"
+            placeholder="Book Title"
+          />
+          <label for="floatingBookTitle">Book Title</label>
+        </div>
+        <div class="form-floating mb-1">
+          <input
+            type="text"
+            class="form-control author"
+            id="floatingAuthor"
+            placeholder="Author"
+          />
+          <label for="floatingAuthor">Author</label>
+        </div>
+        <div class="form-floating mb-1">
+          <input
+            type="text"
+            class="form-control isbn"
+            id="floatingIsbn"
+            placeholder="ISBN"
+          />
+          <label for="floatingIsbn">ISBN #</label>
+        </div>
       </div>
       <button class="btn btn-dark submit-btn" type="button">Submit</button>
+
       <!-- Table -->
-      <div class="table-responsive-xs">
+      <div class="table-responsive-xs table-container">
         <table class="table table-striped table-success text-center">
           <thead>
             <tr>
@@ -103,6 +110,7 @@
       integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
       crossorigin="anonymous"
     ></script>
-    <script src="app.js"></script>
+    <!-- <script src="app.js"></script> -->
+    <script src="app-es6.js"></script>
   </body>
 </html>

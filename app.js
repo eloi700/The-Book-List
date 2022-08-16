@@ -30,25 +30,33 @@ UI.prototype.clearFields = () => {
 };
 
 //Creating Prototype Function for showAlert(message, className)
-UI.prototype.showAlert = (message, className) =>{
-    const div = document.createElement('div');
-    // div.className = `error ${className}`;----OR
-    div.classList.add(className);
-    // div.appendChild(document.createTextNode(message)); ---OR
-    div.textContent = message;
-    //The Parent of Form
-    const container = document.querySelector('.container');
-    const form = document.querySelector('.book-form');
-    //Inserting DIV before the FORM
-    container.insertBefore(div, form);
-    //setTimeout for 3 seconds
-    setTimeout(() =>{
-        div.classList.remove('error');
-        div.classList.remove('success');
-        div.textContent = '';
-    }, 3000);
-}
+UI.prototype.showAlert = (message, className) => {
+  const div = document.createElement("div");
+  // div.className = `error ${className}`;----OR
+  div.classList.add(className);
+  // div.appendChild(document.createTextNode(message)); ---OR
+  div.textContent = message;
+  //The Parent of Form
+  const container = document.querySelector(".container");
+  const form = document.querySelector(".book-form");
+  //Inserting DIV before the FORM
+  container.insertBefore(div, form);
+  //setTimeout for 3 seconds
+  setTimeout(() => {
+    div.remove("error");
+    div.remove("success");
+  }, 3000);
+};
 
+//Creating Prototype Function for deleteBook(target)
+UI.prototype.deleteBook = (target) =>{
+    const delTarget = document.querySelector('.delete');
+    if(target === delTarget){
+    target.parentElement.parentElement.remove();
+  }
+};
+
+//Event Listener for Adding Book
 document.querySelector(".submit-btn").addEventListener("click", (e) => {
   //Get the Form Values
   const title = document.querySelector(".title").value,
@@ -64,18 +72,31 @@ document.querySelector(".submit-btn").addEventListener("click", (e) => {
   //Validation of Input
   if (title === "" || author === "" || isbn === "") {
     //ERROR Handling (Alert) - (message, className)
-    ui.showAlert('Please fill in all fields', 'error');
-
+    ui.showAlert("Please fill in all fields", "error");
   } else {
     //Add book to List
     ui.addBookToList(book);
 
     //Show SUCCESS Alert Message - (message, className)
-    ui.showAlert('Book Added!', 'success');
+    ui.showAlert("Book Added!", "success");
 
     //Clear fields
     ui.clearFields();
   }
+
+  e.preventDefault();
+});
+
+//Event Listener for Delete
+document.querySelector(".book-list").addEventListener("click", (e) => {
+  //INSTANTIATE UI Object
+  const ui = new UI();
+
+  //Delete Book
+  ui.deleteBook(e.target);
+
+  //Show Alert Message
+  ui.showAlert("Book Deleted!", "success");
 
   e.preventDefault();
 });
