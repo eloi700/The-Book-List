@@ -50,8 +50,10 @@ class UI {
     for (const delTarget of delTargetList) {
       if (target === delTarget) {
         target.parentElement.parentElement.remove();
+        return true;
       }
     }
+    return false;
   }
 }
 
@@ -85,9 +87,9 @@ class Store {
     const books = Store.getBooks();
     books.forEach((book, index) => {
       const ui = new UI();
-        if(book.isbn === isbn){
-            books.splice(index, 1)
-        }
+      if (book.isbn === isbn) {
+        books.splice(index, 1);
+      }
     });
     localStorage.setItem("books", JSON.stringify(books));
   }
@@ -136,13 +138,15 @@ document.querySelector(".book-list").addEventListener("click", (e) => {
   const ui = new UI();
 
   //Delete Book
-  ui.deleteBook(e.target);
+  const hasDeletedBook = ui.deleteBook(e.target);
 
-  //Remove from LS
-  Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
+  if (hasDeletedBook) {
+    //Remove from LS
+    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
-  //Show Alert Message
-  ui.showAlert("Book Deleted!", "success");
+    //Show Alert Message
+    ui.showAlert("Book Deleted!", "success");
+  }
 
   e.preventDefault();
 });
